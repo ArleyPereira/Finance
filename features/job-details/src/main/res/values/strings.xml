@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    ApplyingScreen-->
+    <string name="label_title_applying_screen">Aplicar para a vaga</string>
+    <string name="label_full_name_applying_screen">Nome completo</string>
+    <string name="label_email_applying_screen">Email</string>
+    <string name="label_upload_curriculum_applying_screen">Upload currículo</string>
+    <string name="label_cover_letter_applying_screen">Carta de motivação (opcional)</string>
+    <string name="label_send_applying_screen">Enviar</string>
+
+</resources>

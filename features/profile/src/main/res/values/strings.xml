@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    EditProfileScreen-->
+    <string name="label_title_edit_profile_screen">Perfil</string>
+    <string name="label_input_first_name_edit_profile_screen">Nome</string>
+    <string name="label_input_last_name_edit_profile_screen">Sobrenome</string>
+    <string name="label_input_email_edit_profile_screen">E-mail</string>
+    <string name="label_input_phone_edit_profile_screen">Telefone</string>
+    <string name="label_button_update_edit_profile_screen">Salvar</string>
+
+</resources>

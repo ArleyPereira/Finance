@@ -1,0 +1,101 @@
+[versions]
+agp = "8.13.1"
+kotlin = "2.2.21"
+coreKtx = "1.17.0"
+junit = "4.13.2"
+junitVersion = "1.3.0"
+espressoCore = "3.7.0"
+lifecycleRuntimeKtx = "2.10.0"
+activityCompose = "1.12.0"
+compose-bom = "2025.11.01"
+lottie-compose = "6.7.1"
+koin-compose = "4.1.1"
+navigation-compose = "2.9.6"
+serialization-json = "1.9.0"
+multiplatform-settings = "1.3.0"
+landscapist-coil = "2.6.1"
+moko-permissions = "0.20.1"
+material3 = "1.4.0"
+appcompat = "1.7.1"
+material = "1.13.0"
+compileSdk = "36"
+minSdk = "24"
+targetSdk = "36"
+versionCode = "1"
+versionName = "1.0"
+google-services = "4.4.4"
+firebase-bom = "34.6.0"
+compose-placeholder = "1.0.12"
+
+[libraries]
+# Compose
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+
+# Firebase
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-database = { module = "com.google.firebase:firebase-database" }
+firebase-auth = { module = "com.google.firebase:firebase-auth" }
+firebase-storage = { module = "com.google.firebase:firebase-storage" }
+
+# Moko Permissions
+moko-permissions = { module = "dev.icerock.moko:permissions", version.ref = "moko-permissions" }
+
+# Serialization
+serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization-json" }
+
+# Koin
+koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-compose" }
+
+# Lottie
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie-compose" }
+
+# Multiplatform Settings
+multiplatform-settings = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
+
+# Landscapist
+landscapist-coil = { module = "com.github.skydoves:landscapist-coil", version.ref = "landscapist-coil" }
+
+# Compose Placeholder
+compose-placeholder = { module = "com.eygraber:compose-placeholder-material", version.ref = "compose-placeholder" }
+
+# Test
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+# Others
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+
+[bundles]
+compose = [
+    "compose-ui",
+    "compose-ui-graphics", # Verificar se pode remover
+    "compose-ui-tooling-preview",
+    "compose-material3"
+]
+firebase = [
+    "firebase-database",
+    "firebase-auth",
+    "firebase-storage"
+]

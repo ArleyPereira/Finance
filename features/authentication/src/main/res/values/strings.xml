@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    Generic-->
+    <string name="error_generic">Ocorreu um erro, por favor tente novamente mais tarde.</string>
+
+    <!--    AuthenticationScreen-->
+    <string name="label_title_authentication_screen">Entrar com</string>
+    <string name="label_sign_with_facebook_authentication_screen">Continuar com Facebook</string>
+    <string name="label_sign_with_google_authentication_screen">Continuar com Google</string>
+    <string name="label_sign_with_github_authentication_screen">Continuar com Github</string>
+    <string name="label_or_authentication_screen">ou</string>
+    <string name="label_sign_with_password_authentication_screen">Entrar com senha</string>
+    <string name="label_sign_up_account_authentication_screen">Não tem uma conta?</string>
+    <string name="label_sign_up_authentication_screen">Criar conta</string>
+
+    <!--    LoginScreen-->
+    <string name="label_input_email_login_screen">Email</string>
+    <string name="label_input_password_login_screen">Senha</string>
+    <string name="label_button_login_screen">Entrar</string>
+    <string name="label_forgot_password_login_screen">Esqueceu a senha?</string>
+    <string name="label_sign_up_account_login_screen">Não tem uma conta?</string>
+    <string name="label_sign_up_login_screen">Criar conta</string>
+
+    <!--    LoginScreen - Message-->
+    <string name="message_email_invalid_format_login_screen">Informe um e-mail válido</string>
+    <string name="message_password_invalid_format_login_screen">Informe uma senha válida</string>
+
+    <!--    SignupScreen - Label-->
+    <string name="label_title_signup_screen">Crie sua conta</string>
+    <string name="label_input_first_name_signup_screen">Nome</string>
+    <string name="label_input_last_name_signup_screen">Sobrenome</string>
+    <string name="label_input_email_signup_screen">E-mail</string>
+    <string name="label_input_password_signup_screen">Senha</string>
+    <string name="label_button_signup_screen">Criar conta</string>
+
+    <!--    SignupScreen - Message-->
+    <string name="message_first_name_invalid_format_signup_screen">Informe um nome válido</string>
+    <string name="message_last_name_invalid_format_signup_screen">Informe um sobrenome válido</string>
+    <string name="message_email_invalid_format_signup_screen">Informe um e-mail válido</string>
+    <string name="message_password_invalid_format_signup_screen">Informe uma senha válida</string>
+
+</resources>

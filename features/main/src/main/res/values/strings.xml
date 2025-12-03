@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    BottomAppBar-->
+    <string name="label_home_bottom_app_bar">Início</string>
+    <string name="label_saved_bottom_app_bar">Salvos</string>
+    <string name="label_application_bottom_app_bar">Inscrições</string>
+    <string name="label_message_bottom_app_bar">Chat</string>
+    <string name="label_profile_bottom_app_bar">Perfil</string>
+
+    <string name="label_title_top_app_bar_salary_expectation_screen">Expectativa salarial</string>
+    <string name="label_minimum_salary_expectation_screen">Salário mínimo</string>
+    <string name="label_maximum_salary_expectation_screen">Salário máximo</string>
+    <string name="label_currency_salary_expectation_screen">Moeda</string>
+    <string name="label_frequency_salary_expectation_screen">Frequência</string>
+    <string name="label_save_button_salary_expectation_screen">Salvar</string>
+
+</resources>

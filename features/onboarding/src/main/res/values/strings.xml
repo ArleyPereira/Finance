@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    WelcomeScreen-->
+    <string name="label_skip_button_welcome_screen">Pular</string>
+    <string name="label_next_button_welcome_screen">Começar</string>
+
+</resources>

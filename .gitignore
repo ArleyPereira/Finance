@@ -1,0 +1,20 @@
+# Gradle
+.gradle/
+build/
+
+# Kotlin
+**/build/
+**/out/
+
+# Android Studio
+.idea/
+*.iml
+
+# Local properties
+local.properties
+
+# Cache
+.cxx/
+
+# MacOS
+.DS_Store

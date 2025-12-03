@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    CountryScreen-->
+    <string name="text_title_country_screen">Seu país</string>
+    <string name="text_placeholder_country_screen">Ex: Brasil</string>
+    <string name="text_button_select_country_screen">Selecionar</string>
+
+    <!--    ExpertiseScreen-->
+    <string name="text_button_next_expertise_screen">Continuar</string>
+
+</resources>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "882205472814",
+    "firebase_url": "https://finance-251ac-default-rtdb.firebaseio.com",
+    "project_id": "finance-251ac",
+    "storage_bucket": "finance-251ac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882205472814:android:268f2e4eca43113c0047bf",
+        "android_client_info": {
+          "package_name": "br.com.hellodev.finance"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqZTu9pdKY9pfTC0iePzP1G_zrWxlKZG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
