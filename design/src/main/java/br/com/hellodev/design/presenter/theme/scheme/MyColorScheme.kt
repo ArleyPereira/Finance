@@ -11,6 +11,7 @@ data class MyColorScheme(
     val divider: DividerColorScheme,
     val socialButton: SocialButtonColorScheme,
     val textField: TextFieldColorScheme,
+    val menuItem: MenuItemScheme,
     val switch: SwitchColorScheme,
     val topAppBar: TopAppBarColorScheme,
     val radio: RadioColorScheme,

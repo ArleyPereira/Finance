@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    ProfileScreen - Items -->
+    <string name="label_edit_title_profile_screen">Editar perfil</string>
+    <string name="label_edit_message_profile_screen">Edite as informações do seu perfil</string>
+    <string name="label_credit_cards_title_profile_screen">Meus cartões</string>
+    <string name="label_credit_cards_message_profile_screen">Gerencie seus cartões cadastrados</string>
+    <string name="label_theme_mode_title_profile_screen">Modo escuro</string>
+    <string name="label_theme_mode_message_profile_screen">Altere a aparência do aplicativo</string>
+    <string name="label_logout_title_profile_screen">Sair</string>
+    <string name="label_logout_message_profile_screen">Deslogue de sua conta</string>
+
+</resources>

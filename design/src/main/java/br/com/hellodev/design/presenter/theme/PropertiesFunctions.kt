@@ -75,16 +75,21 @@ fun Modifier.dashedBorder(
 }
 
 @Composable
-fun borderStrokeDefault(isSelect: Boolean = false): BorderStroke {
+fun borderStrokeDefault(
+    isSelect: Boolean = false,
+    width: Dp = 1.dp,
+    selectedColor: Color = ColorScheme.colorScheme.border.selected,
+    unselectedColor: Color = ColorScheme.colorScheme.border.unselected
+): BorderStroke {
     return if (isSelect) {
         BorderStroke(
-            width = 1.dp,
-            color = ColorScheme.colorScheme.border.selected
+            width = width,
+            color = selectedColor
         )
     } else {
         BorderStroke(
-            width = 1.dp,
-            color = ColorScheme.colorScheme.border.unselected
+            width = width,
+            color = unselectedColor
         )
     }
 }

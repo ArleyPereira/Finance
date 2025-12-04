@@ -35,14 +35,12 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import br.com.hellodev.design.presenter.components.bar.search.SearchBarUI
-import br.com.hellodev.design.presenter.components.carousel.CarouselUI
 import br.com.hellodev.design.presenter.components.icon.notification.NotificationIcon
 import br.com.hellodev.design.presenter.components.image.ImageUI
 import br.com.hellodev.design.presenter.components.item.job.section.HorizontalJobSectionUI
 import br.com.hellodev.design.presenter.components.item.job.section.verticalJobSectionUI
-import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.ColorScheme
+import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.UrbanistFamily
 import br.com.hellodev.domain.model.banner.BannerDomain
 import br.com.hellodev.domain.model.job.section.JobSectionDomain
@@ -56,6 +54,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeScreen(
+    paddingValues: PaddingValues = PaddingValues(),
     navigateToDetails: (Int) -> Unit,
     navigateToSearchScreen: (String) -> Unit
 ) {
@@ -63,6 +62,7 @@ fun HomeScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     HomeContent(
+        paddingValues = paddingValues,
         state = state,
         action = viewModel::dispatchAction,
         navigateToDetails = navigateToDetails,
@@ -73,6 +73,7 @@ fun HomeScreen(
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 private fun HomeContent(
+    paddingValues: PaddingValues = PaddingValues(),
     state: HomeState,
     action: (HomeAction) -> Unit,
     navigateToDetails: (Int) -> Unit,
@@ -113,7 +114,7 @@ private fun HomeContent(
             ImageUI(
                 modifier = Modifier
                     .size(48.dp),
-                imageModel = state.profile?.photo,
+                imageModel = state.profile?.avatar,
                 contentScale = ContentScale.Crop,
                 shape = CircleShape,
                 previewPlaceholder = painterResource(id = R.drawable.ic_person),
@@ -155,21 +156,6 @@ private fun HomeContent(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        SearchBarUI(
-            modifier = Modifier
-                .padding(horizontal = 24.dp),
-            value = state.query,
-            placeholder = "Pesquise vaga ou empresa",
-            onValueChange = {
-                action(HomeAction.OnSearchChange(it))
-            },
-            onSearchAction = {
-                navigateToSearchScreen(state.query)
-            }
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize(),
@@ -179,16 +165,6 @@ private fun HomeContent(
             ),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            item {
-                CarouselUI(
-                    banners = state.banners ?: emptyList(),
-                    pagerState = pagerState,
-                    onClick = {}
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-            }
-
             item {
                 state.recommendation?.let {
                     HorizontalJobSectionUI(

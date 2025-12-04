@@ -5,6 +5,9 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Scaffold
@@ -15,17 +18,19 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import br.com.hellodev.design.presenter.components.bar.bottom.BottomBarItemUI
-import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.ColorScheme
+import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.main.presenter.navigation.host.BottomAppBarNavHost
 import br.com.hellodev.main.presenter.navigation.main.items.BottomAppBarItems
 import br.com.hellodev.main.presenter.navigation.routes.BottomBarRoutes
+import br.com.hellodev.profile.presenter.navigation.routes.ProfileRoutes
 
 @Composable
 fun MainScreen(
@@ -90,11 +95,18 @@ fun MainContent(
                 }
             )
         },
-        content = {
+        content = { paddingValues ->
             BottomAppBarNavHost(
                 modifier = Modifier
                     .background(ColorScheme.colorScheme.screen.backgroundPrimary),
-                navHostController = navController
+                navHostController = navController,
+                navigateToLoginScreen = {},
+                paddingValues = PaddingValues(
+                    top = paddingValues.calculateTopPadding() + 16.dp,
+                    start = paddingValues.calculateStartPadding(LayoutDirection.Ltr),
+                    end = paddingValues.calculateEndPadding(LayoutDirection.Rtl),
+                    bottom = paddingValues.calculateBottomPadding() + 16.dp
+                )
             )
         }
     )
@@ -106,7 +118,7 @@ fun isBottomAppBar(currentDestination: NavDestination?): Boolean {
         BottomBarRoutes.Saved::class.qualifiedName,
         BottomBarRoutes.ApplicationList::class.qualifiedName,
         BottomBarRoutes.Message::class.qualifiedName,
-        BottomBarRoutes.Account::class.qualifiedName -> true
+        ProfileRoutes.Profile::class.qualifiedName -> true
 
         else -> false
     }

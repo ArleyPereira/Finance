@@ -9,6 +9,6 @@ fun UserResponse.toDomain(): User {
         firstName = firstName,
         lastName = lastName,
         email = email,
-        photo = photo
+        avatar = avatar
     )
 }

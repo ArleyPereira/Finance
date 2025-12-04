@@ -43,7 +43,7 @@ import br.com.hellodev.core.enums.illustration.IllustrationType.IC_ADD
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_EDIT_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_EMAIL_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_LOCATION_LINE
-import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PERSON
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PERSON_FILL
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PHONE_LINE
 import br.com.hellodev.design.presenter.components.divider.HorizontalDividerUI
 import br.com.hellodev.design.presenter.components.icon.default.DefaultIcon
@@ -65,7 +65,7 @@ fun AccountCard(
     var expandedState by remember { mutableStateOf(false) }
 
     val leftIllustrationType = when (cardType) {
-        CONTACT_INFORMATION -> IC_PERSON
+        CONTACT_INFORMATION -> IC_PERSON_FILL
         SUMMARY -> IllustrationType.IC_SUMMARY
         EXPECTED_SALARY -> IllustrationType.IC_EXPECTED_SALARY
         WORK_EXPERIENCE -> IllustrationType.IC_WORK_EXPERIENCE

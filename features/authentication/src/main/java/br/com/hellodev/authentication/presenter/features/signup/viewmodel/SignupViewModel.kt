@@ -74,7 +74,7 @@ class SignupViewModel(
 
                 saveUserUseCase(
                     user = User(
-                        photo = "",
+                        avatar = "",
                         firstName = _state.value.firstName,
                         lastName = _state.value.lastName,
                         email = _state.value.email,

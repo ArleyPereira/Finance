@@ -1,5 +1,6 @@
 package br.com.hellodev.main.presenter.navigation.host
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -13,18 +14,19 @@ import br.com.hellodev.job_search.presenter.navigation.routes.SearchRoutes
 import br.com.hellodev.main.presenter.features.applications.list.screen.ApplicationListScreen
 import br.com.hellodev.main.presenter.features.applications.status.screen.ApplicationStatusScreen
 import br.com.hellodev.main.presenter.features.contact.screen.ContactInformationScreen
-import br.com.hellodev.main.presenter.features.main.account.screen.AccountScreen
 import br.com.hellodev.main.presenter.features.main.home.screen.HomeScreen
-import br.com.hellodev.main.presenter.features.salary.screen.SalaryExpectationScreen
 import br.com.hellodev.main.presenter.features.main.saved.screen.SavedScreen
+import br.com.hellodev.main.presenter.features.salary.screen.SalaryExpectationScreen
 import br.com.hellodev.main.presenter.features.summary.screen.SummaryScreen
 import br.com.hellodev.main.presenter.navigation.routes.BottomBarRoutes
-import br.com.hellodev.profile.presenter.features.profile.screen.ProfileScreen
+import br.com.hellodev.profile.presenter.navigation.host.profileNavHost
 
 @Composable
 fun BottomAppBarNavHost(
     modifier: Modifier = Modifier,
-    navHostController: NavHostController
+    navHostController: NavHostController,
+    navigateToLoginScreen: () -> Unit,
+    paddingValues: PaddingValues = PaddingValues()
 ) {
     NavHost(
         navController = navHostController,
@@ -68,32 +70,6 @@ fun BottomAppBarNavHost(
 
         }
 
-        composable<BottomBarRoutes.Account> {
-            AccountScreen(
-                navigateToProfileScreen = {
-                    navHostController.navigate(BottomBarRoutes.Profile)
-                },
-                navigateToContactInformationScreen = {
-                    navHostController.navigate(BottomBarRoutes.ContactInformation)
-                },
-                navigateToSummaryScreen = {
-                    navHostController.navigate(BottomBarRoutes.Summary)
-                },
-                navigateToSalaryExpectationScreen = {
-                    navHostController.navigate(BottomBarRoutes.SalaryExpectation)
-                }
-            )
-        }
-
-        composable<BottomBarRoutes.Profile> {
-            ProfileScreen(
-                navigateToCountryScreen = {
-
-                },
-                onBackPressed = navHostController::popBackStackSafely
-            )
-        }
-
         composable<BottomBarRoutes.Summary> {
             SummaryScreen(
                 onBackPressed = navHostController::popBackStackSafely
@@ -111,6 +87,12 @@ fun BottomAppBarNavHost(
                 onBackPressed = navHostController::popBackStackSafely
             )
         }
+
+        profileNavHost(
+            navHostController = navHostController,
+            navigateToLoginScreen = navigateToLoginScreen,
+            paddingValues = paddingValues
+        )
 
         detailsNavHost(navHostController = navHostController)
 

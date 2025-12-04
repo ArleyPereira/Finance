@@ -24,8 +24,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.hellodev.design.R
 import br.com.hellodev.design.presenter.components.loading.CircularProgressLoading
-import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.ColorScheme
+import br.com.hellodev.design.presenter.theme.HelloTheme
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -43,7 +43,7 @@ fun ImageUI(
     borderStroke: BorderStroke = BorderStroke(0.dp, Color.Transparent),
     isLoading: Boolean = false,
     enabled: Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit = {}
 ) {
     val failureComposition by rememberLottieComposition(LottieCompositionSpec.Asset("error_loading_error.json"))
 

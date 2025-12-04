@@ -123,7 +123,7 @@ private fun SignupContent(
                     error = stringResource(R.string.message_first_name_invalid_format_signup_screen),
                     leadingIcon = {
                         Icon(
-                            painter = getDrawableIllustration(IllustrationType.IC_PERSON),
+                            painter = getDrawableIllustration(IllustrationType.IC_PERSON_FILL),
                             contentDescription = null,
                             tint = ColorScheme.colorScheme.icon.default
                         )
@@ -150,7 +150,7 @@ private fun SignupContent(
                     error = stringResource(R.string.message_last_name_invalid_format_signup_screen),
                     leadingIcon = {
                         Icon(
-                            painter = getDrawableIllustration(IllustrationType.IC_PERSON),
+                            painter = getDrawableIllustration(IllustrationType.IC_PERSON_FILL),
                             contentDescription = null,
                             tint = ColorScheme.colorScheme.icon.default
                         )

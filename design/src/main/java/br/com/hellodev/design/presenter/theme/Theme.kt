@@ -14,6 +14,7 @@ import br.com.hellodev.design.presenter.theme.scheme.ButtonColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.CheckColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.DividerColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.IconColorScheme
+import br.com.hellodev.design.presenter.theme.scheme.MenuItemScheme
 import br.com.hellodev.design.presenter.theme.scheme.MyColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.RadioColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.ScreenColorScheme
@@ -63,6 +64,9 @@ private val LightColorScheme = MyColorScheme(
         text = TextFieldTextColorLight,
         placeholder = TextFieldPlaceholderColor,
         disabledText = DisabledTextFieldTextColorLight
+    ),
+    menuItem = MenuItemScheme(
+        background = MenuItemBackgroundColorLight
     ),
     switch = SwitchColorScheme(
         selectedBackground = SwitchSelectedBackgroundColor,
@@ -154,6 +158,9 @@ private val DarkColorScheme = MyColorScheme(
         text = TextFieldTextColorDark,
         placeholder = TextFieldPlaceholderColor,
         disabledText = DisabledTextFieldTextColorDark
+    ),
+    menuItem = MenuItemScheme(
+        background = MenuItemBackgroundColorDark
     ),
     switch = SwitchColorScheme(
         selectedBackground = SwitchSelectedBackgroundColor,

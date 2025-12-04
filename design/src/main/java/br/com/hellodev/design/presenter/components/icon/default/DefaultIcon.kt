@@ -21,7 +21,13 @@ import br.com.hellodev.core.enums.illustration.IllustrationType.IC_CHECK
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_CHECK_SIMPLE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_CLASSIFY
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_CLOSE
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_CREDIT_CARD_FILL
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_CREDIT_CARD_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_CV_RESUME
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_DARK_MODE_FILL
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_DARK_MODE_LINE
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_DELETE_FILL
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_DELETE_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_EDIT_FILL
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_EDIT_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_EDUCATION
@@ -40,10 +46,12 @@ import br.com.hellodev.core.enums.illustration.IllustrationType.IC_LANGUAGES
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_LOCATION_FILL
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_LOCATION_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_LOCK
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_LOGOUT
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_MARK_FILL
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_MARK_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PDF
-import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PERSON
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PERSON_FILL
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PERSON_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PHONE_FILL
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PHONE_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_PROJECTS
@@ -92,7 +100,8 @@ fun getDrawableIllustration(
             IC_ARROW_LEFT -> R.drawable.ic_arrow_left
             IC_ARROW_RIGHT -> R.drawable.ic_arrow_right
             IC_ARROW_DOWN -> R.drawable.ic_arrow_down
-            IC_PERSON -> R.drawable.ic_person_fill
+            IC_PERSON_FILL -> R.drawable.ic_person_fill
+            IC_PERSON_LINE -> R.drawable.ic_person_line
             IC_PHONE_LINE -> R.drawable.ic_phone_line
             IC_PHONE_FILL -> R.drawable.ic_phone_fill
             IC_LOCATION_LINE -> R.drawable.ic_location_line
@@ -111,6 +120,13 @@ fun getDrawableIllustration(
             IC_CHECK_SIMPLE -> R.drawable.ic_check_simple
             IC_INFO_FILL -> R.drawable.ic_info_fill
             IC_INFO_LINE -> R.drawable.ic_info_line
+            IC_CREDIT_CARD_FILL -> R.drawable.ic_credit_card_fill
+            IC_CREDIT_CARD_LINE -> R.drawable.ic_credit_card_line
+            IC_LOGOUT -> R.drawable.ic_logout
+            IC_DARK_MODE_FILL -> R.drawable.ic_dark_mode_fill
+            IC_DARK_MODE_LINE -> R.drawable.ic_dark_mode_line
+            IC_DELETE_FILL -> R.drawable.ic_delete_fill
+            IC_DELETE_LINE -> R.drawable.ic_delete_line
         }
     )
 }
@@ -150,7 +166,7 @@ fun DefaultIcon(
             IC_ARROW_LEFT -> R.drawable.ic_arrow_left
             IC_ARROW_RIGHT -> R.drawable.ic_arrow_right
             IC_ARROW_DOWN -> R.drawable.ic_arrow_down
-            IC_PERSON -> R.drawable.ic_person_fill
+            IC_PERSON_FILL -> R.drawable.ic_person_fill
             IC_EMAIL_LINE -> R.drawable.ic_email_line
             IC_ADD -> R.drawable.ic_add
             IC_PHONE_LINE -> R.drawable.ic_phone_line
@@ -171,6 +187,7 @@ fun DefaultIcon(
             IC_CHECK_SIMPLE -> R.drawable.ic_check_simple
             IC_INFO_FILL -> R.drawable.ic_info_fill
             IC_INFO_LINE -> R.drawable.ic_info_line
+            else -> R.drawable.ic_person_fill
         }
     )
 

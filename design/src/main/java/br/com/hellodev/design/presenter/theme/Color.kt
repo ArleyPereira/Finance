@@ -72,6 +72,10 @@ val RadioUnselectedColor = Color(0xFF246BFD)
 val CheckedColor = Color(0xFF246BFD)
 val UncheckedColor = Color(0xFF246BFD)
 
+// MenuItem
+val MenuItemBackgroundColorLight = Color(0xFFFAFAFA)
+val MenuItemBackgroundColorDark = Color(0xFF1F222A)
+
 // Social Button
 val BackgroundSocialButtonColorLight = Color.Transparent
 val BackgroundSocialButtonColorDark = Color(0xFF1F222A)

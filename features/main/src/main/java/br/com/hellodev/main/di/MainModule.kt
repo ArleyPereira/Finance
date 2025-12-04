@@ -1,6 +1,6 @@
 package br.com.hellodev.main.di
 
-import br.com.hellodev.main.presenter.features.account.viewmodel.AccountViewModel
+import br.com.hellodev.profile.presenter.features.profile.viewmodel.ProfileViewModel
 import br.com.hellodev.main.presenter.features.applications.list.viewmodel.ApplicationListViewModel
 import br.com.hellodev.main.presenter.features.applications.status.viewmodel.ApplicationStatusViewModel
 import br.com.hellodev.main.presenter.features.contact.viewmodel.ContactInformationViewModel
@@ -23,7 +23,7 @@ val mainModule = module {
 
     viewModelOf(::ApplicationStatusViewModel)
 
-    viewModelOf(::AccountViewModel)
+    viewModelOf(::ProfileViewModel)
 
     viewModelOf(::ContactInformationViewModel)
 

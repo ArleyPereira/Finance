@@ -17,9 +17,6 @@ sealed class BottomBarRoutes {
     data object Message : BottomBarRoutes()
 
     @Serializable
-    data object Account : BottomBarRoutes()
-
-    @Serializable
     data class ApplicationStatus(
         val id: Int
     ) : BottomBarRoutes()
@@ -32,8 +29,5 @@ sealed class BottomBarRoutes {
 
     @Serializable
     data object SalaryExpectation : BottomBarRoutes()
-
-    @Serializable
-    data object Profile : BottomBarRoutes()
 
 }

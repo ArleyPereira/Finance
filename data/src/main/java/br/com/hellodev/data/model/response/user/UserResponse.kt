@@ -17,6 +17,6 @@ data class UserResponse(
     @SerialName("email")
     val email: String? = null,
 
-    @SerialName("photo")
-    val photo: String? = null
+    @SerialName("avatar")
+    val avatar: String? = null
 )

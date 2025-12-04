@@ -28,7 +28,8 @@ enum class IllustrationType {
     IC_ARROW_LEFT,
     IC_ARROW_RIGHT,
     IC_ARROW_DOWN,
-    IC_PERSON,
+    IC_PERSON_FILL,
+    IC_PERSON_LINE,
     IC_PHONE_LINE,
     IC_PHONE_FILL,
     IC_LOCATION_LINE,
@@ -46,5 +47,12 @@ enum class IllustrationType {
     IC_CHECK,
     IC_CHECK_SIMPLE,
     IC_INFO_FILL,
-    IC_INFO_LINE
+    IC_INFO_LINE,
+    IC_CREDIT_CARD_FILL,
+    IC_CREDIT_CARD_LINE,
+    IC_DARK_MODE_FILL,
+    IC_DARK_MODE_LINE,
+    IC_LOGOUT,
+    IC_DELETE_FILL,
+    IC_DELETE_LINE
 }
