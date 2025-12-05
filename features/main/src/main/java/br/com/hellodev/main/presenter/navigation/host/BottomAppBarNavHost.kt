@@ -35,6 +35,7 @@ fun BottomAppBarNavHost(
     ) {
         composable<BottomBarRoutes.Home> {
             HomeScreen(
+                paddingValues = paddingValues,
                 navigateToDetails = {
                     navHostController.navigate(DetailsRoutes.Details(id = it))
                 },

@@ -5,6 +5,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import br.com.hellodev.credit_card.presenter.navigation.host.creditCardNavHost
+import br.com.hellodev.credit_card.presenter.navigation.routes.CreditCardRoutes
 import br.com.hellodev.profile.presenter.features.edit_profile.screen.EditProfileScreen
 import br.com.hellodev.profile.presenter.features.profile.screen.ProfileScreen
 import br.com.hellodev.profile.presenter.navigation.routes.ProfileRoutes
@@ -22,6 +24,9 @@ fun NavGraphBuilder.profileNavHost(
                 paddingValues = paddingValues,
                 navigateToEditProfileScreen = {
                     navHostController.navigate(ProfileRoutes.EditProfile)
+                },
+                navigateToListCreditCardScreen = {
+                    navHostController.navigate(CreditCardRoutes.Graph)
                 }
             )
         }
@@ -31,5 +36,7 @@ fun NavGraphBuilder.profileNavHost(
                 onBackPressed = navHostController::popBackStack
             )
         }
+
+        creditCardNavHost(navHostController = navHostController)
     }
 }

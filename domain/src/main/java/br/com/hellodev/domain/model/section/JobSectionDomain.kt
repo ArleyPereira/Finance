@@ -1,4 +1,4 @@
-package br.com.hellodev.domain.model.job.section
+package br.com.hellodev.domain.model.section
 
 import br.com.hellodev.domain.model.category.CategoryDomain
 import br.com.hellodev.domain.model.job.item.JobItemDomain

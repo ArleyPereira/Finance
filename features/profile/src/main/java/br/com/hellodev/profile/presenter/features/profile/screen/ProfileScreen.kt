@@ -54,7 +54,8 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun ProfileScreen(
     paddingValues: PaddingValues = PaddingValues(),
-    navigateToEditProfileScreen: () -> Unit
+    navigateToEditProfileScreen: () -> Unit,
+    navigateToListCreditCardScreen: () -> Unit
 ) {
     val viewModel = koinViewModel<ProfileViewModel>()
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -81,7 +82,7 @@ fun ProfileScreen(
                 }
 
                 CREDIT_CARDS -> {
-
+                    navigateToListCreditCardScreen()
                 }
 
                 DARK_MODE -> {

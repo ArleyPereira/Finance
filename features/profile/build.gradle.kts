@@ -41,10 +41,11 @@ dependencies {
     // Design
     implementation(project(":design"))
 
-    // Common
-
     // Core
     implementation(project(":core"))
+
+    // Feature - Credit Card
+    implementation(project(":features:credit_card"))
 
     // Compose
     implementation(platform(libs.compose.bom))

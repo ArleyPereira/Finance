@@ -53,6 +53,9 @@ dependencies {
     // Features - Job Details
     implementation(project(":features:job-details"))
 
+    // Feature - Credit Card
+    implementation(project(":features:credit_card"))
+
     // Compose
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)

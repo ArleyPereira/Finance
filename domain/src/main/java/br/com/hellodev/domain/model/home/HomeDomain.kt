@@ -1,7 +1,7 @@
 package br.com.hellodev.domain.model.home
 
 import br.com.hellodev.domain.model.banner.BannerDomain
-import br.com.hellodev.domain.model.job.section.JobSectionDomain
+import br.com.hellodev.domain.model.section.JobSectionDomain
 import br.com.hellodev.domain.model.user.User
 
 data class HomeDomain(

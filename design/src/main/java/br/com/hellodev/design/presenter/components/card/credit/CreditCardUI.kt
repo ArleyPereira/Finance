@@ -1,5 +1,6 @@
 package br.com.hellodev.design.presenter.components.card.credit
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,9 +17,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,19 +30,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import br.com.hellodev.core.enums.illustration.IllustrationType.IC_DELETE_LINE
-import br.com.hellodev.core.enums.illustration.IllustrationType.IC_EDIT_LINE
 import br.com.hellodev.core.functions.format.DecimalFormat
 import br.com.hellodev.design.R
 import br.com.hellodev.design.extensions.modifier.shimmerPlaceholder
-import br.com.hellodev.design.presenter.components.icon.default.getDrawableIllustration
 import br.com.hellodev.design.presenter.components.image.ImageUI
-import br.com.hellodev.design.presenter.components.spacer.HorizontalSpacer
 import br.com.hellodev.design.presenter.components.spacer.VerticalSpacer
+import br.com.hellodev.design.presenter.components.tag.TagUI
 import br.com.hellodev.design.presenter.theme.ColorScheme
 import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.UrbanistFamily
-import br.com.hellodev.design.presenter.theme.borderDefault
 import br.com.hellodev.design.presenter.theme.borderStrokeDefault
 import br.com.hellodev.domain.model.credit_card.CreditCard
 
@@ -53,10 +47,7 @@ fun CreditCardUI(
     modifier: Modifier = Modifier,
     card: CreditCard,
     isLoading: Boolean = false,
-    showOptions: Boolean = true,
-    onClick: () -> Unit,
-    onEditClick: () -> Unit,
-    onDeleteClick: () -> Unit
+    onClick: () -> Unit
 ) {
     Card(
         onClick = onClick,
@@ -65,6 +56,7 @@ fun CreditCardUI(
             containerColor = ColorScheme.colorScheme.screen.backgroundSecondary
         ),
         border = borderStrokeDefault(),
+        shape = RoundedCornerShape(28.dp),
         content = {
             Column(
                 modifier = Modifier
@@ -106,55 +98,13 @@ fun CreditCardUI(
                         )
                     )
 
-                    if (showOptions) {
-                        IconButton(
-                            onClick = onEditClick,
-                            modifier = Modifier
-                                .shimmerPlaceholder(visible = isLoading)
-                                .borderDefault(
-                                    shape = RoundedCornerShape(4.dp)
-                                )
-                                .size(32.dp),
-                            colors = IconButtonDefaults.iconButtonColors(
-                                containerColor = ColorScheme.colorScheme.alphaDefaultColor
-                            ),
-                            shape = RoundedCornerShape(4.dp),
-                            content = {
-                                Icon(
-                                    painter = getDrawableIllustration(IC_EDIT_LINE),
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .size(16.dp),
-                                    tint = ColorScheme.colorScheme.defaultColor
-                                )
-                            }
+                    TagUI(
+                        text = "Visa",
+                        border = BorderStroke(
+                            width = 1.dp,
+                            color = ColorScheme.colorScheme.tag.border
                         )
-
-                        HorizontalSpacer(size = 8)
-
-                        IconButton(
-                            onClick = onDeleteClick,
-                            modifier = Modifier
-                                .shimmerPlaceholder(visible = isLoading)
-                                .borderDefault(
-                                    shape = RoundedCornerShape(4.dp)
-                                )
-                                .size(32.dp),
-                            colors = IconButtonDefaults.iconButtonColors(
-                                containerColor = ColorScheme.colorScheme.alertAlphaColor
-                            ),
-                            shape = RoundedCornerShape(4.dp),
-                            content = {
-                                Icon(
-                                    painter = getDrawableIllustration(IC_DELETE_LINE),
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .size(16.dp),
-                                    tint = ColorScheme.colorScheme.alertColor
-                                )
-                            }
-                        )
-                    }
+                    )
                 }
 
                 VerticalSpacer(size = 16)
@@ -177,7 +127,7 @@ fun CreditCardUI(
                     )
 
                     Text(
-                        text = "Próxima fatura",
+                        text = "Fatura atual",
                         modifier = Modifier
                             .shimmerPlaceholder(visible = isLoading),
                         style = TextStyle(
@@ -316,9 +266,7 @@ private fun CreditCardUIPreview() {
             items(CreditCard.items) { item ->
                 CreditCardUI(
                     card = item,
-                    onClick = {},
-                    onEditClick = {},
-                    onDeleteClick = {}
+                    onClick = {}
                 )
             }
         }

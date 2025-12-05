@@ -5,7 +5,8 @@ import androidx.lifecycle.viewModelScope
 import br.com.hellodev.domain.model.category.CategoryDomain
 import br.com.hellodev.domain.model.home.HomeDomain
 import br.com.hellodev.domain.model.job.item.JobItemDomain
-import br.com.hellodev.domain.model.job.section.JobSectionDomain
+import br.com.hellodev.domain.model.section.JobSectionDomain
+import br.com.hellodev.domain.model.section.credit_card.CreditCardSection
 import br.com.hellodev.main.presenter.features.home.action.HomeAction
 import br.com.hellodev.main.presenter.features.main.home.state.HomeState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -47,7 +48,7 @@ class HomeViewModel : ViewModel() {
                     isLoading = false,
                     profile = homeData.profile,
                     banners = homeData.banners,
-                    recommendation = homeData.recommendation,
+                    creditCardSection = CreditCardSection.default,
                     recent = homeData.recent
                 )
             }

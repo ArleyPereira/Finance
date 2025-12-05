@@ -87,7 +87,7 @@ private val LightColorScheme = MyColorScheme(
     tag = TagColorScheme(
         background = TagBackgroundColorLight,
         text = TagTextColorLight,
-        border = TagBorderColorLight
+        border = UnselectedBorderColorLight
     ),
     upload = UploadColorScheme(
         background = UploadBackgroundLight,
@@ -181,7 +181,7 @@ private val DarkColorScheme = MyColorScheme(
     tag = TagColorScheme(
         background = TagBackgroundColorDark,
         text = TagTextColorDark,
-        border = TagBorderColorDark
+        border = UnselectedBorderColorDark
     ),
     upload = UploadColorScheme(
         background = UploadBackgroundColorDark,
