@@ -63,6 +63,9 @@ dependencies {
     // Features - Job Details
     implementation(project(":features:job-details"))
 
+    // Features - Credit Card
+    implementation(project(":features:credit_card"))
+
     // Koin
     implementation(libs.koin.compose)
 }

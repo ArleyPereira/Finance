@@ -2,6 +2,7 @@ package br.com.hellodev.di
 
 import br.com.hellodev.authentication.di.authenticationModule
 import br.com.hellodev.core.di.coreModules
+import br.com.hellodev.credit_card.di.creditCardModule
 import br.com.hellodev.data.di.dataModule
 import br.com.hellodev.domain.di.domainModule
 import br.com.hellodev.job_details.di.jobDetailsModule
@@ -23,6 +24,7 @@ val appModules = module {
         mainModule,
         jobSearchModule,
         jobDetailsModule,
-        profileModules
+        profileModules,
+        creditCardModule
     )
 }

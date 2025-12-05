@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,7 +28,6 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import br.com.hellodev.domain.model.job.item.JobItemDomain
 import br.com.hellodev.core.enums.tag.TagType
 import br.com.hellodev.design.presenter.components.bar.top.TopAppBarUI
 import br.com.hellodev.design.presenter.components.button.PrimaryButton
@@ -35,9 +35,10 @@ import br.com.hellodev.design.presenter.components.divider.HorizontalDividerUI
 import br.com.hellodev.design.presenter.components.item.job.details.JobDetailsItemUI
 import br.com.hellodev.design.presenter.components.loading.CircularLoadingScreen
 import br.com.hellodev.design.presenter.components.tag.TagUI
-import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.ColorScheme
+import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.UrbanistFamily
+import br.com.hellodev.domain.model.job.item.JobItemDomain
 import br.com.hellodev.main.presenter.features.applications.status.action.ApplicationStatusAction
 import br.com.hellodev.main.presenter.features.applications.status.state.ApplicationStatusState
 import br.com.hellodev.main.presenter.features.applications.status.viewmodel.ApplicationStatusViewModel
@@ -57,6 +58,7 @@ fun ApplicationStatusScreen(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ApplicationStatusContent(
     state: ApplicationStatusState,
@@ -72,7 +74,7 @@ fun ApplicationStatusContent(
             Scaffold(
                 topBar = {
                     TopAppBarUI(
-                        onClick = onBackPressed
+                        onBackPressed = onBackPressed
                     )
                 },
                 bottomBar = {

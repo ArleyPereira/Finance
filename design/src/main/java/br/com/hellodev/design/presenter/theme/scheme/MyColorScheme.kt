@@ -13,7 +13,6 @@ data class MyColorScheme(
     val textField: TextFieldColorScheme,
     val menuItem: MenuItemScheme,
     val switch: SwitchColorScheme,
-    val topAppBar: TopAppBarColorScheme,
     val radio: RadioColorScheme,
     val check: CheckColorScheme,
     val tag: TagColorScheme,

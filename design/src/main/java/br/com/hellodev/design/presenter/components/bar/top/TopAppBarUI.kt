@@ -3,75 +3,114 @@ package br.com.hellodev.design.presenter.components.bar.top
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.width
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import br.com.hellodev.core.enums.illustration.IllustrationType.IC_ARROW_LEFT
-import br.com.hellodev.design.presenter.components.icon.default.DefaultIcon
-import br.com.hellodev.design.presenter.theme.HelloTheme
+import br.com.hellodev.design.R
 import br.com.hellodev.design.presenter.theme.ColorScheme
+import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.UrbanistFamily
 
-@OptIn(ExperimentalMaterial3Api::class)
+@ExperimentalMaterial3Api
 @Composable
 fun TopAppBarUI(
     modifier: Modifier = Modifier,
-    title: String = "",
-    showNavigationIcon: Boolean = true,
+    navigationIcon: Painter = painterResource(R.drawable.ic_arrow_left),
     actions: @Composable (RowScope.() -> Unit) = {},
-    onClick: () -> Unit
+    title: String = "",
+    centerAligned: Boolean = false,
+    containerColor: Color = ColorScheme.colorScheme.screen.backgroundPrimary,
+    onBackPressed: (() -> Unit)? = null
 ) {
-    TopAppBar(
-        title = {
-            Text(
-                text = title,
-                style = TextStyle(
-                    fontSize = 20.sp,
-                    lineHeight = 28.8.sp,
-                    fontFamily = UrbanistFamily,
-                    fontWeight = FontWeight.Bold
+    if (centerAligned) {
+        CenterAlignedTopAppBar(
+            title = {
+                Text(
+                    text = title,
+                    style = TextStyle(
+                        lineHeight = 19.6.sp,
+                        fontFamily = UrbanistFamily,
+                        fontWeight = FontWeight(700),
+                        color = ColorScheme.colorScheme.text.primaryColor
+                    ),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
+            },
+            modifier = modifier,
+            navigationIcon = {
+                onBackPressed?.let {
+                    IconButton(
+                        onClick = it,
+                        content = {
+                            Icon(
+                                painter = navigationIcon,
+                                contentDescription = null,
+                                tint = ColorScheme.colorScheme.icon.color
+                            )
+                        }
+                    )
+                }
+            },
+            actions = actions,
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = containerColor
             )
-        },
-        modifier = modifier,
-        actions = actions,
-        navigationIcon = {
-            if (showNavigationIcon) {
-                IconButton(
-                    onClick = onClick,
-                    content = {
-                        DefaultIcon(
-                            type = IC_ARROW_LEFT,
-                            tint = ColorScheme.colorScheme.icon.color,
-                            onClick = onClick
-                        )
-                    }
-                )
-            } else {
-                Spacer(modifier = Modifier.width(16.dp))
-            }
-        },
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = ColorScheme.colorScheme.topAppBar.background,
-            navigationIconContentColor = ColorScheme.colorScheme.topAppBar.content,
-            actionIconContentColor = ColorScheme.colorScheme.topAppBar.content,
-            titleContentColor = ColorScheme.colorScheme.topAppBar.content
         )
-    )
+    } else {
+        TopAppBar(
+            title = {
+                Text(
+                    text = title,
+                    style = TextStyle(
+                        lineHeight = 19.6.sp,
+                        fontFamily = UrbanistFamily,
+                        fontWeight = FontWeight(700),
+                        color = ColorScheme.colorScheme.text.primaryColor
+                    ),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            },
+            modifier = modifier,
+            navigationIcon = {
+                onBackPressed?.let {
+                    IconButton(
+                        onClick = it,
+                        content = {
+                            Icon(
+                                painter = navigationIcon,
+                                contentDescription = null,
+                                tint = ColorScheme.colorScheme.icon.color
+                            )
+                        }
+                    )
+                }
+            },
+            actions = actions,
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = containerColor
+            )
+        )
+    }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @PreviewLightDark
 @Composable
 private fun TopAppBarUIPreview() {
@@ -83,8 +122,7 @@ private fun TopAppBarUIPreview() {
         ) {
             TopAppBarUI(
                 title = "Fill Your Profile",
-                showNavigationIcon = true,
-                onClick = {}
+                onBackPressed = {}
             )
         }
     }

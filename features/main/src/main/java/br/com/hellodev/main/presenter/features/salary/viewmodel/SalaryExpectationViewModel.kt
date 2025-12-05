@@ -5,8 +5,6 @@ import androidx.lifecycle.viewModelScope
 import br.com.hellodev.core.enums.input.InputType
 import br.com.hellodev.core.enums.input.InputType.SALARY_CURRENCY
 import br.com.hellodev.core.enums.input.InputType.SALARY_FREQUENCY
-import br.com.hellodev.core.enums.input.InputType.SALARY_MAXIMUM
-import br.com.hellodev.core.enums.input.InputType.SALARY_MINIMUM
 import br.com.hellodev.main.presenter.features.salary.action.SalaryExpectationAction
 import br.com.hellodev.main.presenter.features.salary.state.SalaryExpectationState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -59,20 +57,20 @@ class SalaryExpectationViewModel(
     private fun onTextFieldChanged(value: String, type: InputType) {
         clearError()
 
-        _state.update { currentState ->
-            when (type) {
-                SALARY_MINIMUM -> currentState.copy(minimumSalary = value)
-                SALARY_MAXIMUM -> currentState.copy(maximumSalary = value)
-                SALARY_CURRENCY -> currentState.copy(currency = value)
-                SALARY_FREQUENCY -> currentState.copy(frequency = value)
-                else -> currentState
-            }
-        }
+//        _state.update { currentState ->
+//            when (type) {
+//                SALARY_MINIMUM -> currentState.copy(minimumSalary = value)
+//                SALARY_MAXIMUM -> currentState.copy(maximumSalary = value)
+//                SALARY_CURRENCY -> currentState.copy(currency = value)
+//                SALARY_FREQUENCY -> currentState.copy(frequency = value)
+//                else -> currentState
+//            }
+//        }
     }
 
     private fun inputFeedbackError() {
         val inputError = when {
-            _state.value.minimumSalary.isEmpty() -> SALARY_MINIMUM
+            //_state.value.minimumSalary.isEmpty() -> SALARY_MINIMUM
             _state.value.currency.isEmpty() -> SALARY_CURRENCY
             _state.value.frequency.isEmpty() -> SALARY_FREQUENCY
             else -> null
@@ -84,11 +82,11 @@ class SalaryExpectationViewModel(
     }
 
     private fun isValidData(): Boolean {
-        val minimumSalary = _state.value.minimumSalary.isNotEmpty()
+        //val minimumSalary = _state.value.minimumSalary.isNotEmpty()
         val currency = _state.value.currency.isNotEmpty()
         val frequency = _state.value.frequency.isNotEmpty()
 
-        return minimumSalary && currency && frequency
+        return currency && frequency
     }
 
     private fun getFrequencies(): List<String> {

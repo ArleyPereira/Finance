@@ -1,6 +1,5 @@
 package br.com.hellodev.design.presenter.components.card.credit
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -35,7 +34,6 @@ import br.com.hellodev.design.R
 import br.com.hellodev.design.extensions.modifier.shimmerPlaceholder
 import br.com.hellodev.design.presenter.components.image.ImageUI
 import br.com.hellodev.design.presenter.components.spacer.VerticalSpacer
-import br.com.hellodev.design.presenter.components.tag.TagUI
 import br.com.hellodev.design.presenter.theme.ColorScheme
 import br.com.hellodev.design.presenter.theme.HelloTheme
 import br.com.hellodev.design.presenter.theme.UrbanistFamily
@@ -75,9 +73,9 @@ fun CreditCardUI(
                         content = {
                             ImageUI(
                                 modifier = Modifier
+                                    .shimmerPlaceholder(visible = isLoading, shape = CircleShape)
                                     .padding(2.dp)
-                                    .size(42.dp)
-                                    .shimmerPlaceholder(visible = isLoading),
+                                    .size(42.dp),
                                 imageModel = card.image,
                                 shape = CircleShape,
                                 previewPlaceholder = painterResource(R.drawable.nubank)
@@ -95,14 +93,6 @@ fun CreditCardUI(
                             fontFamily = UrbanistFamily,
                             color = ColorScheme.colorScheme.text.primaryColor,
                             letterSpacing = 0.2.sp
-                        )
-                    )
-
-                    TagUI(
-                        text = "Visa",
-                        border = BorderStroke(
-                            width = 1.dp,
-                            color = ColorScheme.colorScheme.tag.border
                         )
                     )
                 }
@@ -137,6 +127,8 @@ fun CreditCardUI(
                         )
                     )
                 }
+
+                VerticalSpacer(size = 4)
 
                 Row(
                     modifier = Modifier
@@ -237,7 +229,7 @@ fun CreditCardUI(
                     )
 
                     Text(
-                        text = "Vencimento: ${card.dueDate}",
+                        text = "Vencimento: ${card.dueDay}",
                         modifier = Modifier
                             .shimmerPlaceholder(visible = isLoading),
                         style = TextStyle(
@@ -266,6 +258,7 @@ private fun CreditCardUIPreview() {
             items(CreditCard.items) { item ->
                 CreditCardUI(
                     card = item,
+                    isLoading = false,
                     onClick = {}
                 )
             }

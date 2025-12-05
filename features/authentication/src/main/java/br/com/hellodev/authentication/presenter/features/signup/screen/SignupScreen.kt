@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -64,6 +65,7 @@ fun SignupScreen(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun SignupContent(
     state: SignupState,
@@ -74,7 +76,7 @@ private fun SignupContent(
         topBar = {
             TopAppBarUI(
                 title = stringResource(R.string.label_title_signup_screen),
-                onClick = onBackPressed
+                onBackPressed = onBackPressed
             )
         },
         bottomBar = {

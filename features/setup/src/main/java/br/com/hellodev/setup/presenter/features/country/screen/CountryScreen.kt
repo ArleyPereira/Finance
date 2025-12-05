@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -51,6 +52,7 @@ fun CountryScreen(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun CountryContent(
     state: CountryState,
@@ -61,7 +63,7 @@ private fun CountryContent(
         topBar = {
             TopAppBarUI(
                 title = stringResource(R.string.text_title_country_screen),
-                onClick = onBackPressed
+                onBackPressed = onBackPressed
             )
         },
         bottomBar = {

@@ -54,5 +54,7 @@ enum class IllustrationType {
     IC_DARK_MODE_LINE,
     IC_LOGOUT,
     IC_DELETE_FILL,
-    IC_DELETE_LINE
+    IC_DELETE_LINE,
+    IC_ADD_CARD_FILL,
+    IC_ADD_CARD_LINE
 }

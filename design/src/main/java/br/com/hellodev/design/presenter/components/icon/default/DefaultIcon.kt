@@ -12,6 +12,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import br.com.hellodev.core.enums.illustration.IllustrationType
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_ADD
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_ADD_CARD_FILL
+import br.com.hellodev.core.enums.illustration.IllustrationType.IC_ADD_CARD_LINE
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_ALERT
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_ARROW_DOWN
 import br.com.hellodev.core.enums.illustration.IllustrationType.IC_ARROW_LEFT
@@ -127,6 +129,8 @@ fun getDrawableIllustration(
             IC_DARK_MODE_LINE -> R.drawable.ic_dark_mode_line
             IC_DELETE_FILL -> R.drawable.ic_delete_fill
             IC_DELETE_LINE -> R.drawable.ic_delete_line
+            IC_ADD_CARD_FILL -> R.drawable.ic_add_card_fill
+            IC_ADD_CARD_LINE -> R.drawable.ic_add_card_line
         }
     )
 }

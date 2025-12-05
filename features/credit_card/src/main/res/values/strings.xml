@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    FormCreditCardScreen - Message-->
+    <string name="message_name_invalid_form_credit_card_screen">Informe um nome válido</string>
+    <string name="message_limit_invalid_form_credit_card_screen">Informe um limite válido</string>
+    <string name="message_closing_day_invalid_format_signup_screen">Informe o dia de fechamento válido</string>
+    <string name="message_due_day_invalid_format_signup_screen">Informe o dia de vencimento válido</string>
+
+</resources>

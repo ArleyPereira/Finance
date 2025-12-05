@@ -24,7 +24,6 @@ import br.com.hellodev.design.presenter.theme.scheme.SwitchColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.TagColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.TextColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.TextFieldColorScheme
-import br.com.hellodev.design.presenter.theme.scheme.TopAppBarColorScheme
 import br.com.hellodev.design.presenter.theme.scheme.UploadColorScheme
 
 private val LightColorScheme = MyColorScheme(
@@ -71,10 +70,6 @@ private val LightColorScheme = MyColorScheme(
     switch = SwitchColorScheme(
         selectedBackground = SwitchSelectedBackgroundColor,
         unselectedBackground = SwitchUnselectedBackgroundColor
-    ),
-    topAppBar = TopAppBarColorScheme(
-        background = TopAppBarColorLight,
-        content = TopAppBarContentColorLight
     ),
     radio = RadioColorScheme(
         selectedColor = RadioSelectedColor,
@@ -165,10 +160,6 @@ private val DarkColorScheme = MyColorScheme(
     switch = SwitchColorScheme(
         selectedBackground = SwitchSelectedBackgroundColor,
         unselectedBackground = SwitchUnselectedBackgroundColor
-    ),
-    topAppBar = TopAppBarColorScheme(
-        background = TopAppBarColorDark,
-        content = TopAppBarContentColorDark
     ),
     radio = RadioColorScheme(
         selectedColor = RadioSelectedColor,

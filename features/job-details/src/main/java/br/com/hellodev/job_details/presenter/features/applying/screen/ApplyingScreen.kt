@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -73,6 +74,7 @@ fun ApplyingScreen(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ApplyingContent(
     state: ApplyingState,
@@ -84,7 +86,7 @@ fun ApplyingContent(
         topBar = {
             TopAppBarUI(
                 title = stringResource(R.string.label_title_applying_screen),
-                onClick = onBackPressed
+                onBackPressed = onBackPressed
             )
         },
         bottomBar = {

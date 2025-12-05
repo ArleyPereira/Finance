@@ -111,7 +111,7 @@ private fun DetailsContent(
                                 )
                             }
                         },
-                        onClick = onBackPressed
+                        onBackPressed = onBackPressed
                     )
                 },
                 bottomBar = {

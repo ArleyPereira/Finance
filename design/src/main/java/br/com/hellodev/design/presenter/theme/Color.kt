@@ -84,12 +84,6 @@ val TextSocialButtonColorDark = Color(0xFFFFFFFF)
 val BorderSocialButtonColorLight = Color(0xFFEEEEEE)
 val BorderSocialButtonColorDark = Color(0xFF35383F)
 
-// TopAppBar
-val TopAppBarColorLight = Color(0xFFFFFFFF)
-val TopAppBarColorDark = Color(0xFF181A20)
-val TopAppBarContentColorLight = Color(0xFF212121)
-val TopAppBarContentColorDark = Color(0xFFFFFFFF)
-
 // TextField
 val TextFieldBackgroundColorLight = Color(0xFFFAFAFA)
 val TextFieldBackgroundColorDark = Color(0xFF1F222A)
