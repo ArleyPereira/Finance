@@ -7,6 +7,7 @@ import br.com.hellodev.core.enums.input.credit_card.CreditCardInputType
 import br.com.hellodev.core.enums.input.credit_card.CreditCardInputType.CLOSING_DAY
 import br.com.hellodev.core.enums.input.credit_card.CreditCardInputType.DUE_DAY
 import br.com.hellodev.core.enums.input.credit_card.CreditCardInputType.NAME
+import br.com.hellodev.core.enums.sheet.SheetType
 import br.com.hellodev.core.firebase.FirebaseHelper
 import br.com.hellodev.core.functions.capitalizeEachWord
 import br.com.hellodev.credit_card.presenter.features.form.action.FormCreditCardAction
@@ -41,6 +42,14 @@ class FormCreditCardViewModel(
 
             is FormCreditCardAction.SaveCreditCard -> {
                 saveCreditCard()
+            }
+
+            is FormCreditCardAction.ClearBottomSheet -> {
+                clearBottomSheet()
+            }
+
+            is FormCreditCardAction.SetCurrentSheetType -> {
+                setCurrentSheetType(action.type)
             }
         }
     }
@@ -83,11 +92,21 @@ class FormCreditCardViewModel(
             }
 
             CLOSING_DAY -> {
-                _state.update { it.copy(closingDay = value) }
+                _state.update {
+                    it.copy(
+                        closingDay = value.toInt(),
+                        currentSheetType = SheetType.EMPTY
+                    )
+                }
             }
 
             DUE_DAY -> {
-                _state.update { it.copy(dueDay = value) }
+                _state.update {
+                    it.copy(
+                        dueDay = value.toInt(),
+                        currentSheetType = SheetType.EMPTY
+                    )
+                }
             }
 
             else -> {}
@@ -114,7 +133,6 @@ class FormCreditCardViewModel(
         return null
     }
 
-
     private fun isValidData(): Boolean {
 //        val name = isValidName(_state.value.name)
 //        val limit = _state.value.limit > 0f
@@ -135,6 +153,14 @@ class FormCreditCardViewModel(
 //        }
 //
 //        _state.update { it.copy(inputError = inputError) }
+    }
+
+    private fun setCurrentSheetType(type: SheetType) {
+        _state.update { it.copy(currentSheetType = type) }
+    }
+
+    private fun clearBottomSheet() {
+        _state.update { it.copy(currentSheetType = SheetType.EMPTY) }
     }
 
 }

@@ -6,6 +6,10 @@
     <string name="text_first_button_generic_sheet_content">Tentar novamente</string>
     <string name="text_second_button_generic_sheet_content">Entendi</string>
 
+    <!--    SelectorDayBottomSheet-->
+    <string name="label_first_button_selector_day_bottom_sheet">Selecionar</string>
+    <string name="label_secondary_button_selector_day_bottom_sheet">fechar</string>
+
     <!--    ProfileScreen - Items -->
     <string name="label_edit_title_profile_screen">Editar perfil</string>
     <string name="label_edit_message_profile_screen">Edite as informações do seu perfil</string>

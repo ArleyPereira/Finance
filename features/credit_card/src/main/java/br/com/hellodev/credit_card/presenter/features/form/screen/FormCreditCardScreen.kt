@@ -11,8 +11,10 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
@@ -26,18 +28,25 @@ import br.com.hellodev.core.enums.input.credit_card.CreditCardInputType.CLOSING_
 import br.com.hellodev.core.enums.input.credit_card.CreditCardInputType.DUE_DAY
 import br.com.hellodev.core.enums.input.credit_card.CreditCardInputType.LIMIT
 import br.com.hellodev.core.enums.input.credit_card.CreditCardInputType.NAME
+import br.com.hellodev.core.enums.sheet.SheetType
+import br.com.hellodev.core.enums.sheet.SheetType.SELECT_CLOSING_DAY
+import br.com.hellodev.core.enums.sheet.SheetType.SELECT_DUE_DAY
 import br.com.hellodev.credit_card.R
 import br.com.hellodev.credit_card.presenter.features.form.action.FormCreditCardAction
 import br.com.hellodev.credit_card.presenter.features.form.state.FormCreditCardState
 import br.com.hellodev.credit_card.presenter.features.form.viewmodel.FormCreditCardViewModel
 import br.com.hellodev.design.presenter.components.bar.top.TopAppBarUI
 import br.com.hellodev.design.presenter.components.bottom.screen.BottomScreenUI
+import br.com.hellodev.design.presenter.components.bottom.sheet.content.selector_day.SelectorDayBottomSheet
+import br.com.hellodev.design.presenter.components.bottom.sheet.default.DefaultBottomSheet
 import br.com.hellodev.design.presenter.components.button.PrimaryButton
 import br.com.hellodev.design.presenter.components.header.HeaderScreen
+import br.com.hellodev.design.presenter.components.textfield.click.TextFieldClickUI
 import br.com.hellodev.design.presenter.components.textfield.decimal.CurrencyTextFieldUI
 import br.com.hellodev.design.presenter.components.textfield.default.TextFieldUI
 import br.com.hellodev.design.presenter.theme.ColorScheme
 import br.com.hellodev.design.presenter.theme.HelloTheme
+import kotlinx.coroutines.launch
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -61,6 +70,10 @@ fun FormCreditCardContent(
     action: (FormCreditCardAction) -> Unit,
     onBackPressed: () -> Unit
 ) {
+    val scope = rememberCoroutineScope()
+    val sheetState = rememberModalBottomSheetState(
+        skipPartiallyExpanded = true
+    )
     val focusManager = LocalFocusManager.current
 
     Scaffold(
@@ -136,35 +149,75 @@ fun FormCreditCardContent(
                         .fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    TextFieldUI(
+                    TextFieldClickUI(
                         modifier = Modifier
                             .weight(1f),
-                        value = state.closingDay,
+                        value = state.closingDay.toString(),
                         label = "Fechamento",
                         error = stringResource(R.string.message_closing_day_invalid_format_signup_screen),
                         isError = state.inputError == CLOSING_DAY,
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Number,
-                            imeAction = ImeAction.Next
-                        ),
-                        onValueChange = {
-                            action(FormCreditCardAction.OnValueChange(it, CLOSING_DAY))
+                        onClick = {
+                            action(FormCreditCardAction.SetCurrentSheetType(SELECT_CLOSING_DAY))
                         }
                     )
 
-                    TextFieldUI(
+                    TextFieldClickUI(
                         modifier = Modifier
                             .weight(1f),
-                        value = state.dueDay,
+                        value = state.dueDay.toString(),
                         label = "Vencimento",
                         error = stringResource(R.string.message_due_day_invalid_format_signup_screen),
                         isError = state.inputError == DUE_DAY,
-                        keyboardOptions = KeyboardOptions(
-                            keyboardType = KeyboardType.Text,
-                            imeAction = ImeAction.Next
-                        ),
-                        onValueChange = {
-                            action(FormCreditCardAction.OnValueChange(it, DUE_DAY))
+                        onClick = {
+                            action(FormCreditCardAction.SetCurrentSheetType(SELECT_DUE_DAY))
+                        }
+                    )
+                }
+
+                if (state.currentSheetType != SheetType.EMPTY) {
+                    DefaultBottomSheet(
+                        onDismissRequest = {
+                            scope.launch { sheetState.hide() }.invokeOnCompletion {
+                                action(FormCreditCardAction.ClearBottomSheet)
+                            }
+                        },
+                        sheetState = sheetState,
+                        content = {
+                            when (state.currentSheetType) {
+                                SELECT_CLOSING_DAY -> {
+                                    SelectorDayBottomSheet(
+                                        title = stringResource(R.string.label_title_selector_closing_day_bottom_sheet),
+                                        message = stringResource(R.string.label_sub_title_selector_closing_day_bottom_sheet),
+                                        selectedDay = state.closingDay,
+                                        onDaySelected = { day ->
+                                            action(
+                                                FormCreditCardAction.OnValueChange(
+                                                    day.toString(),
+                                                    CLOSING_DAY
+                                                )
+                                            )
+                                        }
+                                    )
+                                }
+
+                                SELECT_DUE_DAY -> {
+                                    SelectorDayBottomSheet(
+                                        title = stringResource(R.string.label_title_selector_due_day_bottom_sheet),
+                                        message = stringResource(R.string.label_sub_title_selector_due_day_bottom_sheet),
+                                        selectedDay = state.dueDay,
+                                        onDaySelected = { day ->
+                                            action(
+                                                FormCreditCardAction.OnValueChange(
+                                                    day.toString(),
+                                                    DUE_DAY
+                                                )
+                                            )
+                                        }
+                                    )
+                                }
+
+                                else -> {}
+                            }
                         }
                     )
                 }

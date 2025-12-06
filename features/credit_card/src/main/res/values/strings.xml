@@ -7,4 +7,12 @@
     <string name="message_closing_day_invalid_format_signup_screen">Informe o dia de fechamento válido</string>
     <string name="message_due_day_invalid_format_signup_screen">Informe o dia de vencimento válido</string>
 
+    <!--    SelectorDayBottomSheet - Closing Day-->
+    <string name="label_title_selector_closing_day_bottom_sheet">Fechamento</string>
+    <string name="label_sub_title_selector_closing_day_bottom_sheet">Selecione o dia de fechamento da fatura do seu cartão</string>
+
+    <!--    SelectorDayBottomSheet - Due Day-->
+    <string name="label_title_selector_due_day_bottom_sheet">Vencimento</string>
+    <string name="label_sub_title_selector_due_day_bottom_sheet">Selecione o dia de vencimento da fatura do seu cartão</string>
+
 </resources>
